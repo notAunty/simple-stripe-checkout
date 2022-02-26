@@ -7,16 +7,20 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  Box,
   Stack,
 } from "@mui/material";
 
 import CenterPage from "../components/Center-page";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default () => {
   const [quantity, setQuantity] = React.useState(1);
 
-  async function redirectToCheckout(stripe) {
+  // Stripe
+  const redirectToCheckout = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51KVmvyEDl9hktgUMGKSIZkkF1SO2kCoBQhywlhTVE4wW6KSkb4dAnwWnbaxaheDvOsLdVZj8T0BkGeYE7E5MvpVu00IWtj6vdl"
+    );
     await stripe.redirectToCheckout({
       lineItems: [
         {
@@ -25,18 +29,14 @@ export default () => {
         },
       ],
       mode: "payment",
-      successUrl: "/success/",
-      cancelUrl: "/cancel/",
+      successUrl: `http://${window.location.hostname}${window.location.pathname.substring(1)}/success/`,
+      cancelUrl: `http://${window.location.hostname}${window.location.pathname.substring(1)}/cancel/`,
     });
-  }
+  };
 
   return (
     <CenterPage bgColor="#f0f0fa">
-      <Stack
-        spacing={4}
-        sx={{
-        }}
-      >
+      <Stack spacing={4} sx={{}}>
         <Card sx={{ maxWidth: 345, borderRadius: "12px" }}>
           <CardMedia
             component="img"
@@ -99,7 +99,7 @@ export default () => {
             </Typography>
           </CardContent>
           <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button onClick={() => {}} >Checkout now</Button>
+            <Button onClick={() => {redirectToCheckout();}}>Checkout now</Button>
           </CardActions>
         </Card>
       </Stack>
