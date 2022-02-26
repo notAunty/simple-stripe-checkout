@@ -8,6 +8,8 @@ export default ({ children, bgColor = "#ffffff" }) => {
     align-items: center;
     justify-content: center;
     background-color: ${bgColor};
+    padding: 32px;
+    overflow-y: auto;
   `;
   return (
     <Center>
