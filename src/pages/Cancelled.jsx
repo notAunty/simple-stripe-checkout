@@ -1,7 +1,7 @@
 import CenterPage from "../components/Center-page";
 import styles from "./Cancelled.module.css";
 
-export default () => {
+const Cancelled = () => {
   return (
     <CenterPage>
       <div className={styles.card}>
@@ -18,3 +18,5 @@ export default () => {
     </CenterPage>
   );
 };
+
+export default Cancelled;

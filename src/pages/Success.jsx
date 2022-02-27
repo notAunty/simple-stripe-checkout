@@ -1,7 +1,7 @@
 import CenterPage from "../components/Center-page";
 import styles from "./Success.module.css";
 
-export default () => {
+const Success = () => {
   return (
     <CenterPage>
       <div className={styles.card}>
@@ -17,3 +17,5 @@ export default () => {
     </CenterPage>
   );
 };
+
+export default Success;

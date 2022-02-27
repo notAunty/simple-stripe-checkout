@@ -13,7 +13,7 @@ import {
 import CenterPage from "../components/Center-page";
 import { loadStripe } from "@stripe/stripe-js";
 
-export default () => {
+const Checkout = () => {
   const [quantity, setQuantity] = React.useState(1);
 
   // Stripe
@@ -106,3 +106,5 @@ export default () => {
     </CenterPage>
   );
 };
+
+export default Checkout;

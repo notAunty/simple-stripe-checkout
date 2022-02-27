@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default ({ children, bgColor = "#ffffff" }) => {
+const CenterPage = ({ children, bgColor = "#ffffff" }) => {
   const Center = styled.div`
     display: flex;
     width: 100%;
@@ -11,9 +11,7 @@ export default ({ children, bgColor = "#ffffff" }) => {
     padding: 32px;
     overflow-y: auto;
   `;
-  return (
-    <Center>
-      {children}
-    </Center>
-  );
+  return <Center>{children}</Center>;
 };
+
+export default CenterPage;
