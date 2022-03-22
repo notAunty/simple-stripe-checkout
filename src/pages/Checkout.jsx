@@ -95,7 +95,7 @@ const Checkout = () => {
               RM {Math.round(99.99 * quantity * 100, 2) / 100}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Grant total
+              Grand total
             </Typography>
           </CardContent>
           <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
